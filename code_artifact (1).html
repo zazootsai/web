@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屏東縣林邊鄉水利國民小學新任校長就職典禮暨祝賀茶會 出席意願調查</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0f7fc;
+            background-image: radial-gradient(#e0f2fe 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .serif-title {
+            font-family: 'Noto Serif TC', serif;
+        }
+        /* 呼應邀請函圖面（ChatGPT Image 2026年7月11日 下午02_01_30.png）的海浪漸層裝飾 */
+        .wave-bg {
+            background: linear-gradient(135deg, #075985 0%, #0369a1 50%, #0284c7 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- 自訂訊息通知 (Toast) -->
+    <div id="customToast" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 transform -translate-y-24 opacity-0 transition-all duration-350 ease-out bg-slate-900 text-white px-6 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 max-w-[90%] md:max-w-md border border-slate-700 pointer-events-none">
+        <span id="toastIcon" class="text-emerald-400 text-lg"><i class="fa-solid fa-circle-check"></i></span>
+        <span id="toastMsg" class="text-sm font-medium">儲存成功！</span>
+    </div>
+
+    <!-- 自訂確認視窗 (Confirm Modal) -->
+    <div id="customConfirm" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 transform scale-95 transition-all duration-200">
+            <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg mb-2">確定要清除資料嗎？</h3>
+            <p class="text-slate-500 text-sm mb-6 leading-relaxed">此動作將永久清除本機中的所有回條紀錄，且無法復原。</p>
+            <div class="flex justify-end gap-3 text-sm">
+                <button id="confirmCancelBtn" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition">取消</button>
+                <button id="confirmOkBtn" class="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-semibold transition">確定清除</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 mt-6">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-sky-100">
+            <div class="wave-bg text-white p-6 md:p-10 relative overflow-hidden">
+                <!-- 裝飾用羅盤與波浪線條 (SVG) -->
+                <div class="absolute right-4 top-4 opacity-10 text-9xl">
+                    <i class="fa-solid fa-compass animate-[spin_120s_linear_infinite]"></i>
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-sky-400 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
+                
+                <div class="relative z-10 text-center py-4 md:py-6">
+                    <p class="text-sky-200 tracking-[0.2em] font-medium text-xs md:text-base mb-2">屏東縣林邊鄉水利國民小學</p>
+                    <h1 class="serif-title text-2xl md:text-5xl font-bold tracking-wider mb-4 text-amber-100 leading-snug">新任校長就職典禮暨祝賀茶會</h1>
+                    <p class="text-sky-100 text-xs md:text-base font-light tracking-widest"> 誠摯邀請您撥冗蒞臨</p>
+                    
+                    <div class="w-20 md:w-24 h-[2px] bg-amber-400 mx-auto my-5 md:my-6"></div>
+                    
+                    <p class="text-[11px] md:text-sm text-sky-200 max-w-xl mx-auto leading-relaxed font-light">
+                        敬請於 7 月 24 日 (五) 前完成填寫
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-amber-50/50 p-6 border-b border-sky-100 grid grid-cols-1 md:grid-cols-3 gap-5 text-slate-700 text-sm">
+                <div class="flex items-start gap-3 p-1">
+                    <div class="bg-sky-100 text-sky-800 p-2.5 rounded-xl shrink-0 mt-0.5">
+                        <i class="fa-solid fa-calendar-day text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-0.5">典禮時間</h4>
+                        <p class="text-slate-600">115 年 08 月 05 日 (三)</p>
+                        <p class="text-slate-500 text-xs">上午 09:30 準時開始</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start gap-3 p-1">
+                    <div class="bg-sky-100 text-sky-800 p-2.5 rounded-xl shrink-0 mt-0.5">
+                        <i class="fa-solid fa-bowl-food text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-0.5">慶祝茶會</h4>
+                        <p class="text-slate-600">自助 Buffet 精緻茶點</p>
+                        <p class="text-slate-500 text-xs">於典禮禮成後同步舉辦</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-1">
+                    <div class="bg-sky-100 text-sky-800 p-2.5 rounded-xl shrink-0 mt-0.5">
+                        <i class="fa-solid fa-map-location-dot text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-0.5">典禮地點</h4>
+                        <p class="text-slate-600 mb-1">水利國小三樓視聽教室</p>
+                        <a href="https://maps.google.com/?q=屏東縣林邊鄉水利村豐漁路117號" target="_blank" class="text-sky-600 hover:text-sky-800 transition text-xs font-semibold underline inline-flex items-center gap-1">
+                            <i class="fa-solid fa-route"></i>導航至學校
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs md:text-sm text-slate-500 font-medium">
+                <span>卸任校長：劉炳輝</span>
+                <span>新任校長：蔡柏緯</span>
+                <span>家長會長：陳偉明</span>
+                <span class="text-slate-600 font-bold">敬邀</span>
+            </div>
+
+            <!-- 典禮活動流程 -->
+            <div class="p-6 md:p-8 border-b border-slate-100 bg-sky-50/10">
+                <h3 class="serif-title text-base md:text-lg font-bold text-slate-800 mb-6 flex items-center gap-2 border-b border-sky-100 pb-2">
+                    <i class="fa-solid fa-calendar-check text-sky-600"></i> 典禮活動流程
+                </h3>
+                <div class="relative border-l-2 border-sky-200 pl-6 ml-4 space-y-6">
+                    <!-- 流程1 -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 bg-white border-4 border-sky-500 rounded-full"></span>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-1 rounded-full w-fit">09:00 - 09:30</span>
+                            <span class="text-slate-800 font-bold text-sm md:text-base">報到相見歡</span>
+                        </div>
+                    </div>
+                    <!-- 流程2 -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 bg-white border-4 border-sky-500 rounded-full"></span>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-1 rounded-full w-fit">09:30 - 09:45</span>
+                            <span class="text-slate-800 font-bold text-sm md:text-base">介紹與會貴賓</span>
+                        </div>
+                    </div>
+                    <!-- 流程3 -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 bg-white border-4 border-sky-500 rounded-full"></span>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-1 rounded-full w-fit">09:45 - 10:00</span>
+                            <span class="text-slate-800 font-bold text-sm md:text-base">長官來賓致詞</span>
+                        </div>
+                    </div>
+                    <!-- 流程4 -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 bg-white border-4 border-sky-500 rounded-full"></span>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-1 rounded-full w-fit">10:00 - 10:10</span>
+                            <span class="text-slate-800 font-bold text-sm md:text-base">劉炳輝校長致詞 <span class="text-xs font-medium text-slate-500 ml-1">(卸任)</span></span>
+                        </div>
+                    </div>
+                    <!-- 流程5 -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 bg-white border-4 border-sky-500 rounded-full"></span>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-1 rounded-full w-fit">10:10 - 10:20</span>
+                            <span class="text-slate-800 font-bold text-sm md:text-base">蔡柏緯校長致詞 <span class="text-xs font-medium text-sky-600 ml-1">(新任)</span></span>
+                        </div>
+                    </div>
+                    <!-- 流程6 -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 bg-white border-4 border-sky-500 rounded-full"></span>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-1 rounded-full w-fit">10:20 - 10:30</span>
+                            <span class="text-slate-800 font-bold text-sm md:text-base">合影留念</span>
+                        </div>
+                    </div>
+                    <!-- 流程7 -->
+                    <div class="relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 bg-white border-4 border-amber-500 rounded-full"></span>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full w-fit">10:30 ~ </span>
+                            <span class="text-amber-800 font-bold text-sm md:text-base flex items-center gap-1.5">
+                                禮成暨慶祝茶敘 <i class="fa-solid fa-mug-hot text-amber-600 animate-pulse"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="rsvpForm" class="p-6 md:p-8 space-y-6">
+                <!-- 姓名 -->
+                <div>
+                    <label class="block text-slate-700 font-bold mb-2 text-sm md:text-base">
+                        <span class="text-rose-500 mr-1">*</span>貴賓姓名
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <input type="text" id="guestName" name="name" required
+                               class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition text-sm md:text-base"
+                               placeholder="請輸入您的姓名">
+                    </div>
+                </div>
+
+                <!-- 單位與職稱 -->
+                <div>
+                    <label class="block text-slate-700 font-bold mb-2 text-sm md:text-base">
+                        <span class="text-rose-500 mr-1">*</span>服務單位與職稱
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                            <i class="fa-solid fa-building"></i>
+                        </span>
+                        <input type="text" id="guestTitle" name="title" required
+                               class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition text-sm md:text-base"
+                               placeholder="例如：XX國小 校長 / XX協會 理事長">
+                    </div>
+                </div>
+
+                <!-- 聯絡電話 -->
+                <div>
+                    <label class="block text-slate-700 font-bold mb-2 text-sm md:text-base">
+                        <span class="text-rose-500 mr-1">*</span>聯絡電話
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        <input type="tel" id="guestPhone" name="phone" required
+                               class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition text-sm md:text-base"
+                               placeholder="例：0912-345678">
+                    </div>
+                </div>
+
+                <!-- 出席意願 -->
+                <div>
+                    <label class="block text-slate-700 font-bold mb-3 text-sm md:text-base">
+                        <span class="text-rose-500 mr-1">*</span>出席意願
+                    </label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <label class="border-2 border-slate-200 hover:border-sky-400 rounded-xl p-4 flex items-center gap-3 cursor-pointer transition [&:has(input:checked)]:border-sky-500 [&:has(input:checked)]:bg-sky-50/50">
+                            <input type="radio" name="attendance" value="both" required onclick="togglePeopleInput(true)"
+                                   class="w-5 h-5 text-sky-600 border-slate-300 focus:ring-sky-500">
+                            <div>
+                                <span class="block font-bold text-slate-800 text-sm md:text-base">親自出席</span>
+                                <span class="block text-xs text-slate-500">典禮與茶會皆參加</span>
+                            </div>
+                        </label>
+
+                        <label class="border-2 border-slate-200 hover:border-sky-400 rounded-xl p-4 flex items-center gap-3 cursor-pointer transition [&:has(input:checked)]:border-sky-500 [&:has(input:checked)]:bg-sky-50/50">
+                            <input type="radio" name="attendance" value="ceremony" onclick="togglePeopleInput(true)"
+                                   class="w-5 h-5 text-sky-600 border-slate-300 focus:ring-sky-500">
+                            <div>
+                                <span class="block font-bold text-slate-800 text-sm md:text-base">僅出席典禮</span>
+                                <span class="block text-xs text-slate-500">不克參加茶會</span>
+                            </div>
+                        </label>
+
+                        <label class="border-2 border-slate-200 hover:border-rose-400 rounded-xl p-4 flex items-center gap-3 cursor-pointer transition [&:has(input:checked)]:border-rose-500 [&:has(input:checked)]:bg-rose-50/50">
+                            <input type="radio" name="attendance" value="decline" onclick="togglePeopleInput(false)"
+                                   class="w-5 h-5 text-rose-600 border-slate-300 focus:ring-rose-500">
+                            <div>
+                                <span class="block font-bold text-slate-800 text-sm md:text-base">不克出席</span>
+                                <span class="block text-xs text-slate-500">祝賀典禮圓滿成功</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 出席人數 (動態顯示) -->
+                <div id="peopleCountSection" class="hidden transition-all duration-300">
+                    <label class="block text-slate-700 font-bold mb-2 text-sm md:text-base">
+                        <span class="text-rose-500 mr-1">*</span>總出席人數 (含貴賓本人)
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                            <i class="fa-solid fa-users"></i>
+                        </span>
+                        <select id="peopleCount" name="count" class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition bg-white appearance-none text-sm md:text-base">
+                            <option value="1">1 人</option>
+                            <option value="2">2 人</option>
+                            <option value="3">3 人</option>
+                            <option value="4">4 人（含）以上</option>
+                        </select>
+                        <span class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <p class="text-xs text-sky-600 mt-2">
+                        <i class="fa-solid fa-circle-info mr-1"></i>因自助茶會餐點需預估份量，請協助填寫精確隨行人數。
+                    </p>
+                </div>
+
+                <!-- 賀詞與備註 -->
+                <div>
+                    <label class="block text-slate-700 font-bold mb-2 text-sm md:text-base">
+                        給新任蔡柏緯校長的祝福或備註
+                    </label>
+                    <textarea id="blessingText" name="blessing" rows="3"
+                              class="w-full p-4 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition text-sm"
+                              placeholder="請輸入您的祝賀詞，或提供其他協調備註。"></textarea>
+                </div>
+
+                <!-- 送出按鈕 -->
+                <button type="submit" id="submitBtn" class="w-full wave-bg text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 text-sm md:text-base">
+                    <i class="fa-solid fa-paper-plane animate-pulse"></i> <span>提交出席回條</span>
+                </button>
+            </form>
+
+            <!-- 成功送出提示 (預設隱藏) -->
+            <div id="successCard" class="hidden p-8 text-center space-y-4">
+                <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto animate-bounce">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="serif-title text-2xl font-bold text-slate-800">回條送出成功！</h3>
+                <p class="text-slate-600 max-w-md mx-auto text-sm md:text-base">
+                    衷心感謝您的回覆，誠摯期待您當天的蒞臨指導。
+                </p>
+                <button onclick="resetForm()" class="text-sky-600 hover:text-sky-800 underline text-sm font-semibold transition inline-flex items-center gap-1">
+                    <i class="fa-solid fa-rotate-left"></i> 再填寫一筆
+                </button>
+            </div>
+        </div>
+
+        <!-- 底部資訊與秘密管理後台 -->
+        <div class="mt-8 px-2 flex justify-center items-center text-xs text-slate-400">
+            <span id="footerCopyright" class="cursor-pointer select-none hover:text-slate-500 transition duration-300">© 115 屏東縣林邊鄉水利國民小學 版權所有 (點擊此處5下解鎖管理後台)</span>
+        </div>
+
+        <div id="adminPanel" class="hidden mt-6 bg-white rounded-2xl shadow-xl p-6 border border-slate-200">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-100 pb-4 mb-4 gap-4">
+                <div>
+                    <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-sky-600"></i> 回條名單統計後台
+                    </h3>
+                    <p class="text-slate-500 text-xs">您可以在這裡查看本機測試資料，或完成 Google 試算表雲端同步設定。</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="exportCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-1.5 px-3 rounded-lg text-xs flex items-center gap-1.5 transition shadow">
+                        <i class="fa-solid fa-file-excel"></i> 匯出本機 CSV
+                    </button>
+                    <button onclick="confirmClearAllData()" class="bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold py-1.5 px-3 rounded-lg text-xs flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-trash-can"></i> 清除本機資料
+                    </button>
+                </div>
+            </div>
+
+            <!-- 串接 Google 試算表設定區域 -->
+            <div class="mb-8 p-5 bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl border border-sky-100">
+                <h4 class="font-bold text-sky-950 mb-2 flex items-center gap-2 text-sm md:text-base">
+                    <i class="fa-solid fa-cloud-arrow-up text-sky-600"></i> 🔗 串接您的 Google 試算表
+                </h4>
+                <p class="text-xs text-sky-800 mb-4 leading-relaxed">
+                    將以下輸入框留空，則資料僅會暫存在填寫者的手機中。若您已按照下方步驟完成 Google Apps Script 部署，請將獲得的 **「網頁應用程式 URL」** 貼在下方：
+                </p>
+                <div class="flex flex-col md:flex-row gap-3">
+                    <input type="url" id="googleScriptUrl" 
+                           class="flex-1 p-2.5 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+                           placeholder="請貼上 https://script.google.com/macros/s/... /exec 網址">
+                    <button onclick="saveGoogleConfig()" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2.5 px-5 rounded-lg text-xs transition shrink-0">
+                        儲存串接設定
+                    </button>
+                </div>
+            </div>
+
+            <!-- 數據摘要 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
+                    <span class="block text-slate-500 text-xs mb-1">本機填寫筆數</span>
+                    <span id="statTotalSubmits" class="text-2xl font-bold text-slate-800">0</span>
+                </div>
+                <div class="bg-sky-50/50 p-4 rounded-xl text-center border border-sky-100/50">
+                    <span class="block text-sky-600 text-xs mb-1">親自出席 (人)</span>
+                    <span id="statAttending" class="text-2xl font-bold text-sky-700">0</span>
+                </div>
+                <div class="bg-indigo-50/50 p-4 rounded-xl text-center border border-indigo-100/50">
+                    <span class="block text-indigo-600 text-xs mb-1">僅出席典禮 (人)</span>
+                    <span id="statCeremony" class="text-2xl font-bold text-indigo-700">0</span>
+                </div>
+                <div class="bg-rose-50/50 p-4 rounded-xl text-center border border-rose-100/50">
+                    <span class="block text-rose-600 text-xs mb-1">不克出席 (筆)</span>
+                    <span id="statDecline" class="text-2xl font-bold text-rose-700">0</span>
+                </div>
+            </div>
+
+            <!-- 本機數據表格 -->
+            <h4 class="font-bold text-slate-800 text-sm mb-2"><i class="fa-solid fa-database mr-1"></i> 本機資料瀏覽（僅顯示本裝置送出的測試資料）：</h4>
+            <div class="overflow-x-auto border border-slate-200 rounded-xl mb-8">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-50 text-slate-600 border-b border-slate-200">
+                            <th class="p-3 font-semibold min-w-[100px]">貴賓姓名</th>
+                            <th class="p-3 font-semibold min-w-[150px]">單位與職稱</th>
+                            <th class="p-3 font-semibold min-w-[120px]">電話</th>
+                            <th class="p-3 font-semibold min-w-[150px]">意願</th>
+                            <th class="p-3 font-semibold text-center min-w-[80px]">人數</th>
+                            <th class="p-3 font-semibold min-w-[180px]">祝賀詞/備註</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guestTableBody" class="divide-y divide-slate-100 text-slate-700">
+                        <tr>
+                            <td colspan="6" class="p-8 text-center text-slate-400">尚無回條填寫資料</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 步驟說明書 -->
+            <div class="border-t border-slate-200 pt-6">
+                <h4 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-emerald-600"></i> 如何在您的 Google 試算表啟用此後台？
+                </h4>
+                <div class="space-y-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    <div>
+                        <span class="inline-block bg-sky-100 text-sky-800 px-2 py-0.5 rounded font-bold mr-2">步驟 1</span>
+                        請先在您的 Google 試算表（**工作表 1**）第 1 列建立以下 A 到 G 的欄位標題：
+                        <div class="bg-slate-50 p-2.5 rounded-lg font-mono text-slate-700 mt-2 flex flex-wrap gap-2 text-xs">
+                            <span>A1: 時間戳記</span>
+                            <span>B1: name</span>
+                            <span>C1: title</span>
+                            <span>D1: phone</span>
+                            <span>E1: attendance</span>
+                            <span>F1: count</span>
+                            <span>G1: blessing</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="inline-block bg-sky-100 text-sky-800 px-2 py-0.5 rounded font-bold mr-2">步驟 2</span>
+                        在試算表畫面，點擊上方選單的 <strong>擴充功能 (Extensions)</strong> &gt; <strong>Apps Script</strong>，刪除原本所有程式碼，貼上為您此試算表量身打造的專屬程式碼：
+                        <pre class="bg-slate-800 text-sky-300 p-3 rounded-lg overflow-x-auto mt-2 text-xs font-mono select-all">
+const sheetName = '工作表1' // 確保與您試算表左下角的名稱相同
+const targetSpreadsheetId = '1LhtgTxnDwoO453997whqjKkvH-h9vJPv2Jx5SWygkUs' // 您的試算表專屬 ID
+
+function doPost (e) {
+  const lock = LockService.getScriptLock()
+  lock.tryLock(10000)
+  try {
+    const doc = SpreadsheetApp.openById(targetSpreadsheetId)
+    const sheet = doc.getSheetByName(sheetName)
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+    const nextRow = sheet.getLastRow() + 1
+    const newRow = headers.map(function(header) {
+      return header === '時間戳記' ? new Date() : e.parameter[header]
+    })
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON)
+  } catch (e) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e.toString() }))
+      .setMimeType(ContentService.MimeType.JSON)
+  } finally {
+    lock.releaseLock()
+  }
+}</pre>
+                    </div>
+                    <div>
+                        <span class="inline-block bg-sky-100 text-sky-800 px-2 py-0.5 rounded font-bold mr-2">步驟 3</span>
+                        在 Apps Script 專案視窗中：
+                        <ul class="list-disc pl-6 mt-1 space-y-1">
+                            <li>點擊上方 <strong>儲存檔案 (Save)</strong> 圖示。</li>
+                            <li>點擊右上角的 <strong>部署 (Deploy)</strong> 按鈕 &gt; 選擇 <strong>新增部署 (New deployment)</strong>。</li>
+                            <li>點擊小齒輪圖示，選取類型為 <strong>網頁應用程式 (Web app)</strong>。</li>
+                            <li><strong>執行身分：</strong> 選「我 (您的 Email)」</li>
+                            <li><strong>誰有權限存取：</strong> 務必選擇「任何人 (Anyone)」</li>
+                            <li>點擊「部署」，過程中會彈出權限請求，請授權允許執行。</li>
+                            <li>部署完成後，複製畫面上產生的 **網頁應用程式 URL** (通常以 `/exec` 結尾)。</li>
+                            <li>將該網址貼回上方 **「串接您的 Google 試算表」** 欄位並儲存，就正式大功告成了！</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 讀取設定好的 Google Script URL（已直接將您的專屬網址設為系統預設）
+            const defaultUrl = 'https://script.google.com/macros/s/AKfycbzxxE2cQfl3VvGexVUQe-VhkutgymbAvc7Q8qWUMgY1Fb1NddfN1E2oLN5rLpiGANp3/exec';
+            let savedUrl = localStorage.getItem('shuili_rsvp_google_url');
+            
+            // 若本機尚未儲存過網址，則自動套用並儲存您的專屬網址
+            if (!savedUrl) {
+                savedUrl = defaultUrl;
+                localStorage.setItem('shuili_rsvp_google_url', defaultUrl);
+            }
+            
+            document.getElementById('googleScriptUrl').value = savedUrl;
+            renderTable();
+
+            // 1. 桌機專用：連續按 5 下空白鍵解鎖後台
+            let spaceCount = 0;
+            let lastSpaceTime = 0;
+            document.addEventListener('keydown', (e) => {
+                const activeEl = document.activeElement;
+                if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA')) {
+                    return;
+                }
+
+                if (e.code === 'Space' || e.key === ' ') {
+                    const currentTime = Date.now();
+                    if (currentTime - lastSpaceTime > 1500) {
+                        spaceCount = 0;
+                    }
+                    spaceCount++;
+                    lastSpaceTime = currentTime;
+
+                    if (spaceCount === 5) {
+                        toggleAdminPanel();
+                        spaceCount = 0;
+                        showToast('已成功解鎖管理員秘密後台！', 'success');
+                    }
+                } else {
+                    spaceCount = 0;
+                }
+            });
+
+            // 2. 手機觸控專用：連續點擊頁尾「版權所有」文字 5 下解鎖後台
+            let clickCount = 0;
+            let lastClickTime = 0;
+            const footerCopyright = document.getElementById('footerCopyright');
+            if (footerCopyright) {
+                footerCopyright.addEventListener('click', () => {
+                    const currentTime = Date.now();
+                    if (currentTime - lastClickTime > 1500) {
+                        clickCount = 0;
+                    }
+                    clickCount++;
+                    lastClickTime = currentTime;
+
+                    if (clickCount === 5) {
+                        toggleAdminPanel();
+                        clickCount = 0;
+                        showToast('已成功解鎖管理員秘密後台！', 'success');
+                    }
+                });
+            }
+        });
+
+        // 自訂 Toast 通知顯示
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('customToast');
+            const icon = document.getElementById('toastIcon');
+            const msg = document.getElementById('toastMsg');
+
+            msg.textContent = message;
+            if (type === 'success') {
+                icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                icon.className = 'text-emerald-400 text-lg';
+            } else if (type === 'info') {
+                icon.innerHTML = '<i class="fa-solid fa-circle-info"></i>';
+                icon.className = 'text-sky-400 text-lg';
+            } else {
+                icon.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+                icon.className = 'text-rose-400 text-lg';
+            }
+
+            toast.classList.remove('opacity-0', '-translate-y-24');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-24');
+            }, 3500);
+        }
+
+        // 自訂 Confirm Modal 邏輯
+        let onConfirmCallback = null;
+        function showConfirm(onConfirm) {
+            const modal = document.getElementById('customConfirm');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            onConfirmCallback = onConfirm;
+        }
+
+        document.getElementById('confirmCancelBtn').addEventListener('click', () => {
+            closeConfirm();
+        });
+
+        document.getElementById('confirmOkBtn').addEventListener('click', () => {
+            if (onConfirmCallback) onConfirmCallback();
+            closeConfirm();
+        });
+
+        function closeConfirm() {
+            const modal = document.getElementById('customConfirm');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            onConfirmCallback = null;
+        }
+
+        // 儲存 Google 試算表 URL 設定
+        function saveGoogleConfig() {
+            const urlInput = document.getElementById('googleScriptUrl').value.trim();
+            localStorage.setItem('shuili_rsvp_google_url', urlInput);
+            showToast(urlInput ? '已開啟雲端試算表自動同步！' : '已關閉雲端串接，切換為本機儲存模式。', 'success');
+        }
+
+        // 控制「出席人數」顯示隱藏
+        function togglePeopleInput(show) {
+            const section = document.getElementById('peopleCountSection');
+            if (show) {
+                section.classList.remove('hidden');
+                document.getElementById('peopleCount').required = true;
+            } else {
+                section.classList.add('hidden');
+                document.getElementById('peopleCount').required = false;
+            }
+        }
+
+        // 提交表單邏輯
+        const rsvpForm = document.getElementById('rsvpForm');
+        const successCard = document.getElementById('successCard');
+        const submitBtn = document.getElementById('submitBtn');
+
+        rsvpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // 讀取表單資料
+            const name = document.getElementById('guestName').value.trim();
+            const title = document.getElementById('guestTitle').value.trim();
+            const phone = document.getElementById('guestPhone').value.trim();
+            const attendanceOption = document.querySelector('input[name="attendance"]:checked').value;
+            const blessing = document.getElementById('blessingText').value.trim();
+            
+            let attendanceText = '';
+            let count = 0;
+
+            if (attendanceOption === 'both') {
+                attendanceText = '親自出席(典禮與茶會)';
+                count = parseInt(document.getElementById('peopleCount').value);
+            } else if (attendanceOption === 'ceremony') {
+                attendanceText = '僅出席典禮';
+                count = parseInt(document.getElementById('peopleCount').value);
+            } else {
+                attendanceText = '不克出席';
+                count = 0;
+            }
+
+            // 鎖定按鈕避免重複提交
+            const originalBtnHtml = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>資料提交中，請稍候...</span>`;
+
+            // 包裝資料物件（本機儲存備份用）
+            const newResponse = {
+                id: Date.now(),
+                name,
+                title,
+                phone,
+                attendance: attendanceText,
+                attendanceType: attendanceOption,
+                count,
+                blessing: blessing || '無'
+            };
+
+            // 1. 本機備份
+            let currentResponses = JSON.parse(localStorage.getItem('shuili_rsvp')) || [];
+            currentResponses.push(newResponse);
+            localStorage.setItem('shuili_rsvp', JSON.stringify(currentResponses));
+
+            // 2. 推送至設定的 Google 試算表 Web App
+            const googleScriptUrl = localStorage.getItem('shuili_rsvp_google_url');
+            if (googleScriptUrl) {
+                try {
+                    const formData = new URLSearchParams();
+                    formData.append('name', name);
+                    formData.append('title', title);
+                    formData.append('phone', phone);
+                    formData.append('attendance', attendanceText);
+                    formData.append('count', count);
+                    formData.append('blessing', blessing || '無');
+
+                    await fetch(googleScriptUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: formData.toString()
+                    });
+                    showToast('已成功即時同步至雲端試算表！', 'success');
+                } catch (error) {
+                    console.error('推送至 Google 試算表失敗：', error);
+                    showToast('本機已儲存，但雲端試算表連線失敗，請檢查後台 API 設定。', 'error');
+                }
+            }
+
+            // 更新介面
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+            rsvpForm.classList.add('hidden');
+            successCard.classList.remove('hidden');
+            renderTable();
+        });
+
+        // 重置表單
+        function resetForm() {
+            rsvpForm.reset();
+            document.getElementById('peopleCountSection').classList.add('hidden');
+            successCard.classList.add('hidden');
+            rsvpForm.classList.remove('hidden');
+        }
+
+        // 切換控制台顯示
+        function toggleAdminPanel() {
+            const adminPanel = document.getElementById('adminPanel');
+            adminPanel.classList.toggle('hidden');
+            if (!adminPanel.classList.contains('hidden')) {
+                adminPanel.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 渲染表格與計算統計
+        function renderTable() {
+            const data = JSON.parse(localStorage.getItem('shuili_rsvp')) || [];
+            const tbody = document.getElementById('guestTableBody');
+            
+            let totalSubmits = data.length;
+            let attendingCount = 0;
+            let ceremonyCount = 0;
+            let declineCount = 0;
+
+            if (totalSubmits === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400">尚無回條填寫資料</td></tr>`;
+            } else {
+                tbody.innerHTML = '';
+                data.forEach(item => {
+                    if (item.attendanceType === 'both') attendingCount += item.count;
+                    if (item.attendanceType === 'ceremony') ceremonyCount += item.count;
+                    if (item.attendanceType === 'decline') declineCount += 1;
+
+                    let badgeClass = 'bg-slate-100 text-slate-600';
+                    if (item.attendanceType === 'both') badgeClass = 'bg-sky-100 text-sky-800';
+                    if (item.attendanceType === 'ceremony') badgeClass = 'bg-indigo-100 text-indigo-800';
+                    if (item.attendanceType === 'decline') badgeClass = 'bg-rose-100 text-rose-800';
+
+                    tbody.innerHTML += `
+                        <tr class="hover:bg-slate-50 transition text-xs md:text-sm">
+                            <td class="p-3 font-bold text-slate-800">${item.name}</td>
+                            <td class="p-3 text-slate-600">${item.title}</td>
+                            <td class="p-3 font-mono text-slate-500">${item.phone}</td>
+                            <td class="p-3">
+                                <span class="px-2 py-1 rounded text-xs font-semibold ${badgeClass}">
+                                    ${item.attendance}
+                                </span>
+                            </td>
+                            <td class="p-3 text-center font-bold text-slate-800">${item.count} 人</td>
+                            <td class="p-3 text-slate-500 max-w-[200px] truncate" title="${item.blessing}">${item.blessing}</td>
+                        </tr>
+                    `;
+                });
+            }
+
+            document.getElementById('statTotalSubmits').innerText = totalSubmits;
+            document.getElementById('statAttending').innerText = attendingCount;
+            document.getElementById('statCeremony').innerText = ceremonyCount;
+            document.getElementById('statDecline').innerText = declineCount;
+        }
+
+        // 用自訂 Modal 觸發清除程序
+        function confirmClearAllData() {
+            showConfirm(() => {
+                localStorage.removeItem('shuili_rsvp');
+                renderTable();
+                showToast('已成功清除本機所有測試資料。', 'info');
+            });
+        }
+
+        // 匯出 CSV 功能
+        function exportCSV() {
+            const data = JSON.parse(localStorage.getItem('shuili_rsvp')) || [];
+            if (data.length === 0) {
+                showToast('目前沒有任何名單可以匯出！', 'error');
+                return;
+            }
+
+            let csvContent = "\uFEFF"; // 防止 Excel 開啟時亂碼
+            csvContent += "貴賓姓名,服務單位與職稱,聯絡電話,出席意願,出席總人數,祝福與備註\n";
+
+            data.forEach(item => {
+                const row = [
+                    `"${item.name.replace(/"/g, '""')}"`,
+                    `"${item.title.replace(/"/g, '""')}"`,
+                    `"${item.phone.replace(/"/g, '""')}"`,
+                    `"${item.attendance}"`,
+                    `"${item.count}人"`,
+                    `"${item.blessing.replace(/"/g, '""')}"`
+                ].join(",");
+                csvContent += row + "\n";
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "水利國小校長就職典禮出席名單統計.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('已成功下載統計報表 (CSV)！', 'success');
+        }
+    </script>
+</body>
+</html>
